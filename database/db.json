@@ -1,0 +1,118 @@
+{
+  "usuario": [
+    {
+      "id": 1,
+      "nombreCompleto": "Juan Perez",
+      "direccion": "Calle Mayor Rocha #2",
+      "celular": 72280569
+    },
+    {
+      "id": 2,
+      "nombreCompleto": "Jose Aramayo",
+      "direccion": "Calle Baptista #76",
+      "celular": 72209568
+    },
+    {
+      "id": 3,
+      "nombreCompleto": "Miriam Gomez",
+      "direccion": "Calle Ayacucho #100",
+      "celular": 71763789
+    },
+    {
+      "id": 4,
+      "nombreCompleto": "Teresa Perez",
+      "direccion": "C.Santvañez #56",
+      "celular": 71798654
+    },
+    {
+      "id": 5,
+      "nombreCompleto": "Juan Carlos Luna",
+      "direccion": "Calle Sucre #25",
+      "celular": 722378569
+    },
+    {
+      "id": 6,
+      "nombreCompleto": "Oscar Bonifacio",
+      "direccion": "Calle Bolivar #789",
+      "celular": 72737448
+    },
+    {
+      "id": 7,
+      "nombreCompleto": "Aracely Flores",
+      "direccion": "Calle Ladislao Cabrera #109",
+      "celular": 71762587
+    },
+    {
+      "id": 8,
+      "nombreCompleto": "Julieta Rocabado Lopez",
+      "direccion": "C.Jordan #586",
+      "celular": 71745485
+    }
+  ],
+  "consumo": [
+    {
+      "id": 1,
+      "cantidadAguaM3": 34,
+      "fechaLectura": "2022-05-15",
+      "totalPagarBs": 340,
+      "usuarioId": 1
+    
+    },
+    {
+      "id": 2,
+      "cantidadAguaM3": 28,
+      "fechaLectura": "2022-02-15",
+      "totalPagarBs": 280,
+      "usuarioId": 2
+      
+    },
+    {
+      "id": 3,
+      "cantidadAguaM3": 21,
+      "fechaLectura": "2022-03-15",
+      "totalPagarBs": 210,
+      "usuarioId": 3
+     
+    },
+    {
+      "id": 4,
+      "cantidadAguaM3": 25,
+      "fechaLectura": "2022-03-15",
+      "totalPagarBs": 250,
+      "usuarioId": 4
+     
+    },
+    {
+      "id": 5,
+      "cantidadAguaM3": 14,
+      "fechaLectura": "2022-03-15",
+      "totalPagarBs": 14,
+      "usuarioId": 5
+      
+    },
+    {
+      "id": 6,
+      "cantidadAguaM3": 8,
+      "fechaLectura": "2022-03-15",
+      "totalPagarBs": 80,
+      "usuarioId": 6
+    
+    },
+    {
+      "id": 7,
+      "cantidadAguaM3": 12,
+      "fechaLectura": "2022-03-15",
+      "totalPagarBs": 120,
+      "usuarioId": 7
+
+    },
+    {
+      "id": 8,
+      "cantidadAguaM3": 4,
+      "fechaLectura": "2022-03-15",
+      "totalPagarBs": 40,
+      "usuarioId": 8
+  
+    }
+  ]
+}

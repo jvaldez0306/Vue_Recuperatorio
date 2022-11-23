@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="components/usuario.js"></script>
+    <script src="components/consumo.js"></script>
+   
+
+</head>
+<style type="text/css">
+    table, td, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+
+    }
+
+</style>
+<body>
+    <div id="app">
+        <h1>Cooperativa de Agua</h1>
+        <p>
+            <input type="text" v-model="idUsuario">
+            <button @click="getUsuarioById()">Buscar Usuario por id</button>
+            <usuario v-if="usuarioEncontrado.id !== null" :usuario="usuarioEncontrado"></usuario>
+                    <table style="width: 80%">                        
+                            <tr>
+                                <th>Fecha de Lectura</th>
+                                <th>Consumo M3</th>
+                                <th>Total a Pagar (BOB)</th>
+                            </tr>
+                       
+                    </table>             
+            
+        </p>
+            <select v-model="mesConsumo">
+                <option>Enero</option>
+                <option>Febrero</option>
+                <option>Marzo</option>
+                <option>Abril</option>
+                <option>Mayo</option>
+                <option>Junio</option>
+                <option>Julio</option>
+                <option>Agosto</option>
+                <option>Septiembre</option>
+                <option>Octubre</option>
+                <option>Noviembre</option>
+                <option>Diciembre</option>
+            </select>
+            <button @click="getConsumoByMes()">Listar Usuarios </button>
+            <consumo v-if="consumoEncontrado.mes !== null" :consumo="consumoEncontrado"></consumo>
+             <p>  
+                <table style="width: 80%">                        
+                <tr>
+                    <th>Usuario</th>
+                    <th>Consumo M3</th>
+                    <th>Total a Pagar (BOB)</th>
+                </tr>
+       
+                </table>  
+            </p>    
+        <p>
+            <button @click="crearUsuario()">Crear usuario</button>
+
+        </p>
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+
+            data:{
+                idUsuario: 0,
+                usuarioEncontrado:{
+                    id:null,
+                    nombreCompleto:null,
+                    direccion:null,
+                    celular:null,
+
+                },
+                nuevoUsuario: {
+                            id:null,
+                            nombreCompleto:null,
+                            direccion:null,
+                            celular: null
+                        },
+                mesConsumo:null,
+                consumoEncontrado:{
+                    mes:null,
+                    
+                }        
+            },
+            methods:{
+                getUsuarios(){
+                    axios
+                    .get("http://localhost:3333/usuario")
+                    .then(response => console.log(response))
+                    .catch(e => console.log(e))
+                },
+                crearUsuario(){
+                    axios({
+                        method: "post",
+                        url: "http://localhost:3333/usuario",
+                        data: {
+                            id:4,
+                            nombreCompleto:"Teresa Perez",
+                            direccion:"C.Santivañez #56",
+                            celular: 71798654
+                        }
+
+                    })
+                    .then(response => console.log(response))
+                    .catch(e => console.log(e));
+
+                },
+                getUsuarioById(){
+                    axios
+                    .get("http://localhost:3333/usuario/"+this.idUsuario)
+                    .then(response => {
+                        console.log(response);                       
+                        this.usuarioEncontrado.id = response.data.id;
+                        this.usuarioEncontrado.nombreCompleto = response.data.nombreCompleto;
+                        this.usuarioEncontrado.direccion = response.data.direccion;
+                        this.usuarioEncontrado.celular = response.data.celular;
+                    })
+                    .catch(e => console.log(e));
+                },
+                getConsumoByMes(){
+                    axios
+                    .get("http://localhost:3333/consumo/"+this.mesConsumo)
+                    .then(response => {
+                        console.log(response);                       
+                        this.consumoEncontrado.mes = response.data.mes;
+                    })
+                    .catch(e => console.log(e));
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
